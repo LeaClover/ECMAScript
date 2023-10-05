@@ -31,16 +31,16 @@ function findElementByClass(rootEl, classN) {
         const arrChilds = rootEl.children;
         console.log(arrChilds);
         for (let i = 0; i < arrChilds.length; i++) {
-            if (arrChilds[i].className !== classN) {
+            if (arrChilds[i].className === classN) {
                 console.log(arrChilds[i]);
-                return arrChilds[i];
+                arrChilds[i];
             } else {
                 findElementByClass(arrChilds[i], classN);
             }
         }
     }
     return 'ok';
-}
+};
 
 const rootElement = document.getElementById('root');
 console.log(rootElement);
