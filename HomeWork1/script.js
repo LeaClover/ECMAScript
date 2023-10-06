@@ -33,14 +33,29 @@ function findElementByClass(rootEl, classN) {
         for (let i = 0; i < arrChilds.length; i++) {
             if (arrChilds[i].className === classN) {
                 console.log(arrChilds[i]);
-                arrChilds[i];
+                return arrChilds[i];
             } else {
                 findElementByClass(arrChilds[i], classN);
             }
         }
     }
-    return 'ok';
-};
+
+    // for (let i = 0; i < arrChilds.length; i++) {
+    //     if (arrChilds[i].className === classN) {
+    //         console.log(arrChilds[i]);
+    //         const res = document.querySelector(arrChilds[i]);
+    //         console.log(res);
+    //         return res;
+    //     } else {
+    //         const res = findElementByClass(arrChilds[i], classN);
+    //         if (typeof res !== undefined) {
+    //             return res;
+    //         }
+    //     }
+    // }
+
+    return;
+}
 
 const rootElement = document.getElementById('root');
 console.log(rootElement);
