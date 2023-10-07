@@ -27,37 +27,19 @@ console.log(crCount.result());
 // console.log(targetElement);
 
 function findElementByClass(rootEl, classN) {
-    if (rootEl.children.length !== 0) {
-        const arrChilds = rootEl.children;
-        console.log(arrChilds);
-        for (let i = 0; i < arrChilds.length; i++) {
-            if (arrChilds[i].className === classN) {
-                console.log(arrChilds[i]);
-                return arrChilds[i];
-            } else {
-                findElementByClass(arrChilds[i], classN);
-            }
+    if (rootEl.classList.contains(classN)) {
+        return rootEl;
+    }
+    for (let i = 0; i < rootEl.children.length; i++) {
+        const result = findElementByClass(rootEl.children[i], classN);
+        if (result) {
+            return result;
         }
     }
-
-    // for (let i = 0; i < arrChilds.length; i++) {
-    //     if (arrChilds[i].className === classN) {
-    //         console.log(arrChilds[i]);
-    //         const res = document.querySelector(arrChilds[i]);
-    //         console.log(res);
-    //         return res;
-    //     } else {
-    //         const res = findElementByClass(arrChilds[i], classN);
-    //         if (typeof res !== undefined) {
-    //             return res;
-    //         }
-    //     }
-    // }
-
-    return;
+    return null;
 }
 
+
 const rootElement = document.getElementById('root');
-console.log(rootElement);
 const targetElement = findElementByClass(rootElement, 'second__p');
 console.log(targetElement);
